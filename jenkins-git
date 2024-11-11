@@ -1,1 +1,2 @@
-echo "this is my jenkins-git job"
+print("hello world")
+print("how are you")
