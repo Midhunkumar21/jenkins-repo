@@ -12,8 +12,8 @@ pipeline {
             }
         }
         stage('Three') {
-            when{
-                not{
+            when {
+                not {
                     branch 'main'
                 }
             }
