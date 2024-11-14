@@ -1,41 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('one') {
+        stage('Build') {
             steps {
-                echo 'Hi, this is a demo declarative pipeline (code)'
+                echo 'Building...'
             }
         }
-        stage('Two') {
+        stage('Test') {
             steps {
-                input 'Do you want to proceed?'
+                echo 'Testing...'
             }
         }
-        stage('Three') {
-            when {
-                not {
-                    branch 'main'
-                }
-            }
+        stage('Deploy') {
             steps {
-                echo 'Hi'
-            }
-        }
-        stage('Four') {
-            parallel {
-                stage('Unit Tests') {
-                    steps {
-                        echo 'Running Unit Tests...'
-                    }
-                }
-                stage('Integration Tests') {
-                    agent {
-                        label 'my-agent'
-                    }
-                    steps {
-                        echo 'Running the integration test...'
-                    }
-                }
+                echo 'Deploying...'
             }
         }
     }
